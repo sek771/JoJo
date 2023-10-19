@@ -15,7 +15,7 @@ const Home = () => {
           <div className="lg:grid lg:grid-cols-2 ">
             <div className="lg:m-32 flex items-center justify-center m-12 h-screen">
               <a href="">
-                <img src="/cover-page/part-1/tome-1.jpg" alt="tome 1" width={450} height={150} />
+                <img src="/medias/cover-page/part-1/tome-1.jpg" alt="tome 1" width={450} height={150} />
               </a>
             </div>
             <Partie />

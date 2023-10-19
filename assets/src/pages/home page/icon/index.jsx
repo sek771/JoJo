@@ -8,7 +8,7 @@ const Icon = () => {
           <div className="grid grid-cols-2 justify-items-center lg:grid lg:grid-cols-4 ">
             <div className="py-10">
               <img
-                src="/icon/jonathan.jpg"
+                src="/medias/icon/jonathan.jpg"
                 alt=""
                 width={300}
                 height={300}
@@ -17,7 +17,7 @@ const Icon = () => {
             </div>
             <div className="py-10">
               <img
-                src="/icon/joseph.jpg"
+                src="/medias/icon/joseph.jpg"
                 alt=""
                 width={300}
                 height={300}
@@ -26,7 +26,7 @@ const Icon = () => {
             </div>
             <div className="py-10">
               <img
-                src="/icon/jotaro.jpg"
+                src="/medias/icon/jotaro.jpg"
                 alt=""
                 width={300}
                 height={300}
@@ -35,7 +35,7 @@ const Icon = () => {
             </div>
             <div className="py-10">
               <img
-                src="/icon/josuke.jpg"
+                src="/medias/icon/josuke.jpg"
                 alt=""
                 width={300}
                 height={300}
@@ -44,7 +44,7 @@ const Icon = () => {
             </div>
             <div className="py-10">
               <img
-                src="/icon/giorno.jpg"
+                src="/medias/icon/giorno.jpg"
                 alt=""
                 width={300}
                 height={300}
@@ -53,7 +53,7 @@ const Icon = () => {
             </div>
             <div className="py-10">
               <img
-                src="/icon/jolyne.jpg"
+                src="/medias/icon/jolyne.jpg"
                 alt=""
                 width={300}
                 height={300}
@@ -62,7 +62,7 @@ const Icon = () => {
             </div>
             <div className="py-10">
               <img
-                src="/icon/johnny.jpg"
+                src="/medias/icon/johnny.jpg"
                 alt=""
                 width={300}
                 height={300}
@@ -71,7 +71,7 @@ const Icon = () => {
             </div>
             <div className="py-10">
               <img
-                src="/icon/jojolion.jpg"
+                src="/medias/icon/jojolion.jpg"
                 alt=""
                 width={300}
                 height={300}

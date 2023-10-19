@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {},
     backgroundImage: {
-      "jojo": "url('http://localhost:8000/background/jojo-font-back.png')",
+      "jojo": "url('http://localhost:8000/medias/background/jojo-font-back.png')",
       "jojo-mobile": "url('http://localhost:8000/jojo-mobile.jpg')"
     },
   },
