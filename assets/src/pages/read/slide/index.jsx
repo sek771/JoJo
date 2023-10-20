@@ -65,17 +65,16 @@ const ImageSlider = () => {
                                     <div>
                                       {img.content?.map((src) => {
                                         return (
-                                          <>
+                                          <div>
                                             <img
                                               src={src}
-                                              alt=""
                                               style={{
                                                 width: "30%",
                                                 cursor: "pointer",
                                               }}
                                               onClick={handleClick}
                                             />
-                                          </>
+                                          </div>
                                         );
                                       })}
                                     </div>
