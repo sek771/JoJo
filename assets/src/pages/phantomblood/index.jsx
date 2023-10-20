@@ -5,9 +5,7 @@ const PhantomBlood = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/books").then((response) => {
-      setBooks(response.data["hydra:member"]);
-    });
+    axios.get("http://localhost:8000/api/books").then((response.data["hydra:member"]));
   }, []);
 
   return (
@@ -15,7 +13,7 @@ const PhantomBlood = () => {
       <section className="bg-blue-900">
         <div className="flex items-center justify-center ">
           <img
-            src="/bannière/phantom-blood.jpg"
+            src="/medias/bannière/phantom-blood.jpg"
             alt=""
             className="glass-b"
             width={1000}

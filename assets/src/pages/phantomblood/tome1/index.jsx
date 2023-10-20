@@ -14,7 +14,7 @@ const TomeUn = () => {
       <section className="bg-cyan-300 h-screen">
         <div className="flex justify-center">
           <img
-            src="/bannières-chapitre/part-1.jpg"
+            src="/medias/bannières-chapitre/part-1.jpg"
             alt=""
             width={1000}
             className="glass-b"
@@ -39,7 +39,7 @@ const TomeUn = () => {
                                     <a
                                       href=""
                                       className="flex justify-center items-center my-1 glass-1"
-                                    >
+                                      >
                                       {title.chapterNumber}-{title.chapterTitle}
                                     </a>
                                   </div>
@@ -48,7 +48,7 @@ const TomeUn = () => {
                             );
                           })}
                         </>
-                      ) : null}
+                          ) : null}
                     </>
                   );
                 })}

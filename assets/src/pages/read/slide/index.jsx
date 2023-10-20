@@ -2,75 +2,162 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const ImageSlider = () => {
-  const [currentChapterIndex, setCurrentChapterIndex] = useState(8);
-  const [currentScanIndex, setCurrentScanIndex] = useState(1);
-  const [bookData, setBookData] = useState(null);
-  const [book, setBook] = useState ([])
+  // const [currentImage, setCurrentImage] = useState(1);
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
-    // Utilise Axios pour récupérer les données depuis le serveur PHP
+    // Utilise Axios pour récupérer les chemins des images depuis le serveur PHP
     axios
       .get("http://localhost:8000/api/books")
-      .then((response) => setBook(response.data))
+      .then((response) => {
+        setImages(response.data["hydra:member"]);
+      })
       .catch((error) => console.error("Error fetching data:", error));
   }, []); // Assure que cela ne s'exécute qu'une seule fois lors du montage du composant
-
   const handleClick = (event) => {
-    const clickX = event.nativeEvent.offsetX;
+    const clickX = event.nativeEvent.offsetX; // Coordonnée X du clic par rapport à l'élément
     const imageWidth = event.target.width;
 
+    // Si le clic est dans les 60% à droite, passe à l'image suivante
     if (clickX > 0.6 * imageWidth) {
-      nextScan();
+      nextImage();
     } else if (clickX < 0.4 * imageWidth) {
-      prevScan();
+      // Si le clic est dans les 40% à gauche, revient à l'image précédente
+      prevImage();
     }
   };
 
-  const nextScan = () => {
-    const newScanIndex = currentScanIndex + 1;
-    if (
-      newScanIndex < bookData.tome[0].chapter[currentChapterIndex].scans.length
-    ) {
-      setCurrentScanIndex(newScanIndex);
-    } else {
-      // Si vous atteignez la dernière image du chapitre, passez au chapitre suivant
-      nextChapter();
+  const nextImage = () => {
+    const newImage = currentImage + 1;
+
+    // Vérifie que l'image suivante existe
+    if (newImage <= images.length) {
+      setCurrentImage(newImage);
     }
   };
 
-  const prevScan = () => {
-    const newScanIndex = currentScanIndex - 1;
-    if (newScanIndex >= 0) {
-      setCurrentScanIndex(newScanIndex);
-    } else {
-      // Si vous êtes sur la première image du chapitre, passez au chapitre précédent
-      prevChapter();
-    }
-  };
+  const prevImage = () => {
+    const newImage = currentImage - 1;
 
-  const nextChapter = () => {
-    const newChapterIndex = currentChapterIndex + 1;
-    if (newChapterIndex < bookData.tome[0].chapter.length) {
-      setCurrentChapterIndex(newChapterIndex);
-      setCurrentScanIndex(0); // Remettre à zéro le scan lorsque vous passez à un nouveau chapitre
-    }
-  };
-
-  const prevChapter = () => {
-    const newChapterIndex = currentChapterIndex - 1;
-    if (newChapterIndex >= 0) {
-      setCurrentChapterIndex(newChapterIndex);
-      setCurrentScanIndex(0); // Remettre à zéro le scan lorsque vous passez à un nouveau chapitre
+    // Vérifie que l'image précédente existe
+    if (newImage >= 1) {
+      setCurrentImage(newImage);
     }
   };
 
   return (
-    <>
-      {book.map((book) => {
-        return (<div>{book.tome.map((tomes)=>{return(<div>{tomes.chapter.map((chapters)=>{return(<div>{chapters.scans.map((scan)=>{return(<><div><img src={scan.start} alt="" /></div></>)})}</div>)})}</div>)})}</div>);
+    <div>
+      {images.map((tome) => {
+        return (
+          <>
+            {tome.tome.map((chapter) => {
+              return (
+                <>
+                  {chapter.chapter.map((scans) => {
+                    return (
+                      <>
+                        <>
+                          {scans.chapterNumber === 1 ? (
+                            <>
+                              {scans.scans.map((img) => {
+                                return (
+                                  <>
+                                    <div>
+                                      {img.content?.map((src) => {
+                                        return (
+                                          <>
+                                            <img
+                                              src={src}
+                                              alt=""
+                                              style={{
+                                                width: "30%",
+                                                cursor: "pointer",
+                                              }}
+                                              onClick={handleClick}
+                                            />
+                                          </>
+                                        );
+                                      })}
+                                    </div>
+                                  </>
+                                );
+                              })}
+                            </>
+                          ) : null}
+                        </>
+                      </>
+                    );
+                  })}
+                </>
+              );
+            })}
+          </>
+        );
       })}
-    </>
+    </div>
   );
 };
+// const ImageSlider = () => {
+//   const [currentImage, setCurrentImage] = useState(0);
+//   const [images, setImages] = useState([]);
+
+//   useEffect(() => {
+//     // Utilise Axios pour récupérer les chemins des images depuis le serveur PHP
+//     axios
+//       .get("http://localhost:8000/api/books")
+//       .then((response) => {
+//         setImages(response.data["hydra:member"]);
+//       })
+//       .catch((error) => console.error("Error fetching data:", error));
+//   }, []); // Assure que cela ne s'exécute qu'une seule fois lors du montage du composant
+
+//   const handleClick = (event) => {
+//     const clickX = event.nativeEvent.offsetX;
+//     const imageWidth = event.target.width;
+
+//     if (clickX > 0.6 * imageWidth) {
+//       nextImage();
+//     } else if (clickX < 0.4 * imageWidth) {
+//       prevImage();
+//     }
+//   };
+
+//   const nextImage = () => {
+//     const newImage = currentImage + 1;
+//     if (newImage < images.length) {
+//       setCurrentImage(newImage);
+//     }
+//   };
+
+//   const prevImage = () => {
+//     const newImage = currentImage - 1;
+//     if (newImage >= 0) {
+//       setCurrentImage(newImage);
+//     }
+//   };
+
+//   return (
+//     <div>
+//       {images[currentImage]?.tome.map((chapter) => (
+//         <div key={chapter.chapterNumber}>
+//           {chapter.chapterNumber === 1 &&
+//             chapter.scans.map((img) => (
+//               <div key={img.chapterNumber}>
+//                 {img.content?.map((src, index) => (
+//                   <img
+//                     key={index}
+//                     src={src}
+//                     alt=""
+//                     style={{ width: "30%", cursor: "pointer" }}
+//                     onClick={handleClick}
+//                   />
+//                 ))}
+//               </div>
+//             ))}
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
 
 export default ImageSlider;
