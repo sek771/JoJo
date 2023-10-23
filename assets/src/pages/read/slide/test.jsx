@@ -4,7 +4,7 @@ import axios from "axios";
 const TestSlider = () => {
   const [currentChapter, setCurrentChapter] = useState(0);
   const [currentScan, setCurrentScan] = useState(0);
-  const [bookData, setBookData] = useState(1);
+  const [bookData, setBookData] = useState();
 
   useEffect(() => {
     // Utilise Axios pour récupérer les données depuis le serveur PHP
@@ -64,7 +64,7 @@ const TestSlider = () => {
   return (
     <div>
       {/* Assurez-vous que les données sont chargées avant de les afficher */}
-      {bookData?.map((tome) => {
+      {bookData.map((tome) => {
         return (
           <>
             {tome.tome?.map((chapter) => {
