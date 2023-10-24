@@ -1,11 +1,21 @@
 import React from "react";
 import ImageSlider from "./slide";
-import TestSlider from "./slide/test";
+import ChapterList from "./chapter-list";
+import BreadCrumb from "./breadcrump";
+
 const Read = () => {
   return (
     <>
-      <section className="h-screen glass-s">
-        <ImageSlider/>
+      <section className="">
+        <div className="grid justify-items-center">
+          <div>
+            <BreadCrumb />
+          </div>
+          <div>
+            <ChapterList />
+          </div>
+          <ImageSlider />
+        </div>
       </section>
     </>
   );

@@ -12,7 +12,7 @@ const Icon = () => {
                 alt=""
                 width={300}
                 height={300}
-                className="glass-icon"
+                className="glass-icon "
               />
             </div>
             <div className="py-10">

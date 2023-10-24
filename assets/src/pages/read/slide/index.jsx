@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Button from "./button";
 
 const ImageSlider = () => {
-  // const [currentImage, setCurrentImage] = useState(1);
+  const [currentImage, setCurrentImage] = useState(1);
+  const [scans, setScans] = useState([]);
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    // Utilise Axios pour récupérer les chemins des images depuis le serveur PHP
-    axios
-      .get("http://localhost:8000/api/books")
-      .then((response) => {
-        setImages(response.data["hydra:member"]);
-      })
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []); // Assure que cela ne s'exécute qu'une seule fois lors du montage du composant
+    axios.get("/api/books").then((response) => {
+      setScans(response.data["hydra:member"]);
+    });
+  }, []);
+
   const handleClick = (event) => {
     const clickX = event.nativeEvent.offsetX; // Coordonnée X du clic par rapport à l'élément
     const imageWidth = event.target.width;
@@ -44,119 +43,61 @@ const ImageSlider = () => {
       setCurrentImage(newImage);
     }
   };
-
   return (
     <div>
-      {images.map((tome) => {
-        return (
-          <>
-            {tome.tome.map((chapter) => {
-              return (
-                <>
-                  {chapter.chapter.map((scans) => {
-                    return (
-                      <>
-                        <>
-                          {scans.chapterNumber === 1 ? (
-                            <>
-                              {scans.scans.map((img) => {
-                                return (
-                                  <>
-                                    <div>
-                                      {img.content?.map((src) => {
-                                        return (
-                                          <div>
-                                            <img
-                                              src={src}
-                                              style={{
-                                                width: "30%",
-                                                cursor: "pointer",
-                                              }}
-                                              onClick={handleClick}
-                                            />
-                                          </div>
-                                        );
-                                      })}
-                                    </div>
-                                  </>
-                                );
-                              })}
-                            </>
-                          ) : null}
-                        </>
-                      </>
-                    );
-                  })}
-                </>
-              );
-            })}
-          </>
-        );
+      {scans.map((scan) => {
+        if (scan.tome[0].title === "Dio l'envahisseur") {
+          scan.tome[0].chapter.map((el) => {
+            if (el.chapterTitle === "Dio l'envahisseur") {
+              let start = el.scans[0].start;
+              let end = el.scans[0].end;
+              images.push(start);
+              el.scans[0].content.map((img) => images.push(img));
+              images.push(end);
+            }
+          });
+        }
       })}
+      {scans.map((scan) => {
+        if (scan.tome[0].title === "Dio l'envahisseur") {
+          scan.tome[0].chapter.map((el) => {
+            if (el.chapterTitle === "Un nouvel ami") {
+              let start = el.scans[0].start;
+              let end = el.scans[0].end;
+              images.push(start);
+              el.scans[0].content.map((img) => images.push(img));
+              images.push(end);
+            }
+          });
+        }
+      })}
+      {scans.map((scan) => {
+        if (scan.tome[0].title === "Dio l'envahisseur") {
+          scan.tome[0].chapter.map((el) => {
+            if (el.chapterTitle === "Chère Erina") {
+              let start = el.scans[0].start;
+              let end = el.scans[0].end;
+              images.push(start);
+              el.scans[0].content.map((img) => images.push(img));
+              images.push(end);
+            }
+          });
+        }
+      })}
+      {/* Ajoutez vos images avec des identifiants uniques */}
+      <div>
+        <img
+          src={images[currentImage - 1]}
+          alt={`Image ${currentImage}`}
+          style={{ width: "70%", cursor: "pointer" }}
+          onClick={handleClick}
+        />
+      </div>
+      <div className="grid justify-items-center">
+        <Button />
+      </div>
     </div>
   );
 };
-// const ImageSlider = () => {
-//   const [currentImage, setCurrentImage] = useState(0);
-//   const [images, setImages] = useState([]);
-
-//   useEffect(() => {
-//     // Utilise Axios pour récupérer les chemins des images depuis le serveur PHP
-//     axios
-//       .get("http://localhost:8000/api/books")
-//       .then((response) => {
-//         setImages(response.data["hydra:member"]);
-//       })
-//       .catch((error) => console.error("Error fetching data:", error));
-//   }, []); // Assure que cela ne s'exécute qu'une seule fois lors du montage du composant
-
-//   const handleClick = (event) => {
-//     const clickX = event.nativeEvent.offsetX;
-//     const imageWidth = event.target.width;
-
-//     if (clickX > 0.6 * imageWidth) {
-//       nextImage();
-//     } else if (clickX < 0.4 * imageWidth) {
-//       prevImage();
-//     }
-//   };
-
-//   const nextImage = () => {
-//     const newImage = currentImage + 1;
-//     if (newImage < images.length) {
-//       setCurrentImage(newImage);
-//     }
-//   };
-
-//   const prevImage = () => {
-//     const newImage = currentImage - 1;
-//     if (newImage >= 0) {
-//       setCurrentImage(newImage);
-//     }
-//   };
-
-//   return (
-//     <div>
-//       {images[currentImage]?.tome.map((chapter) => (
-//         <div key={chapter.chapterNumber}>
-//           {chapter.chapterNumber === 1 &&
-//             chapter.scans.map((img) => (
-//               <div key={img.chapterNumber}>
-//                 {img.content?.map((src, index) => (
-//                   <img
-//                     key={index}
-//                     src={src}
-//                     alt=""
-//                     style={{ width: "30%", cursor: "pointer" }}
-//                     onClick={handleClick}
-//                   />
-//                 ))}
-//               </div>
-//             ))}
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
 
 export default ImageSlider;
