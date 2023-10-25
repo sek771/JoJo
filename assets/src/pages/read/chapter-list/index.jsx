@@ -1,50 +1,57 @@
-import React, { useState, useEffect } from "react";
+"use client";
+
+import React, { useEffect } from "react";
+import { slide as Menu } from "react-burger-menu";
+import { useState } from "react";
 import axios from "axios";
+import { styles } from "./styles";
 
 const ChapterList = () => {
+  const [showMenu, setShowMenu] = useState(false);
   const [list, setList] = useState([]);
+
   useEffect(() => {
     axios.get("http://localhost:8000/api/books").then((response) => {
       setList(response.data["hydra:member"]);
     });
   }, []);
+
+  const HideMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
-    <>
-      <section>
-        <div>
-          <select name="tome1" id="">
-            tome 1
-            <option value="">
-              {list.map((tome) => {
-                return (
-                  <>
-                    {tome.tome.map((chapter) => {
-                      return (
-                        <>
-                          {chapter.chapter.map((chaptercontent) => {
-                            return (
-                              <>
-                                {chapter.title === "Dio l'envahisseur" ? (
-                                  <div>
-                                    <h1>
-                                      Chapitre {chaptercontent.chapterNumber}
-                                    </h1>
-                                  </div>
-                                ) : null}
-                              </>
-                            );
-                          })}
-                        </>
-                      );
-                    })}
-                  </>
-                );
-              })}
-            </option>
-          </select>
-        </div>
-      </section>
-    </>
+    <Menu styles={styles} isOpen={showMenu === true ? false : null}>
+      <ul>
+        <li>
+          <p>
+            {list.map((book) => {
+              return (
+                <>
+                  {book.tome.map((chapter) => {
+                    return (
+                      <>
+                        {chapter.chapter.map((se) => {
+                          return (
+                            <>
+                              <section>
+                                <div>
+                                  <a href="http://localhost:8000/read">chapitre {se.chapterNumber}</a>
+                                </div>
+                              </section>
+                            </>
+                          );
+                        })}
+                      </>
+                    );
+                  })}
+                </>
+              );
+            })}
+          </p>
+        </li>
+      </ul>
+    </Menu>
   );
 };
 

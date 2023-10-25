@@ -6,7 +6,7 @@ import BreadCrumb from "./breadcrump";
 const Read = () => {
   return (
     <>
-      <section className="">
+      <section className="bg-blue-400  ">
         <div className="grid justify-items-center">
           <div>
             <BreadCrumb />
