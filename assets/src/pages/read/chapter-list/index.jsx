@@ -36,7 +36,9 @@ const ChapterList = () => {
                             <>
                               <section>
                                 <div>
-                                  <a href="http://localhost:8000/read">chapitre {se.chapterNumber}</a>
+                                  <a href="http://localhost:8000/read">
+                                    chapitre {se.chapterNumber}
+                                  </a>
                                 </div>
                               </section>
                             </>

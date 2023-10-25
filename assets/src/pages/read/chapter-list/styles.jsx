@@ -3,7 +3,7 @@ export let styles = {
     position: "fixed",
     width: "35px",
     height: "25px",
-    right: "800px",
+    right: "500px",
     top: "30px",
   },
   bmBurgerBars: {
@@ -15,6 +15,7 @@ export let styles = {
   bmCrossButton: {
     height: "20px",
     width: "20px",
+    right: "10px",
   },
   bmCross: {
     background: "#0A5EF0",
@@ -27,8 +28,8 @@ export let styles = {
   bmMenu: {
     background: "#62E0FC",
     fontSize: "1.15em",
-    width: "10vw",
-    height: "100vh",
+    width: "",
+    height: "",
     right: "0px",
   },
   bmMorphShape: {
@@ -42,7 +43,7 @@ export let styles = {
     display: "",
     height: "100vh",
   },
-  // bmOverlay: {
-  //   background: "transparent",
-  // },
+  bmOverlay: {
+    background: "transparent",
+  },
 };
