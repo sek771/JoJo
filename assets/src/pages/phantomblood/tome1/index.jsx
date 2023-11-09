@@ -37,7 +37,7 @@ const TomeUn = () => {
                                 <section>
                                   <div className="flex justify-center">
                                     <a
-                                      href=""
+                                      href={title.href}
                                       className="flex justify-center items-center my-1 glass-1"
                                       >
                                       {title.chapterNumber}-{title.chapterTitle}

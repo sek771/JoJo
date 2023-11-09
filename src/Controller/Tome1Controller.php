@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class SoifDeSangController extends AbstractController
+class Tome1Controller extends AbstractController
 {
-    #[Route('phantomblood/diolenvahisseur', name: 'app_soif_de_sang')]
+    #[Route('/phantomblood/tome1', name: 'app_tome1')]
     public function index(): Response
     {
-        return $this->render('soif_de_sang/index.html.twig', [
-            'controller_name' => 'SoifDeSangController',
+        return $this->render('tome1/index.html.twig', [
+            'controller_name' => 'Tome1Controller',
         ]);
     }
 }

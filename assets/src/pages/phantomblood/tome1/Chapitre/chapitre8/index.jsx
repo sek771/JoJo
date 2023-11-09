@@ -2,7 +2,7 @@ import React from "react";
 import ImageSlider from "./slide";
 import ChapterList from "./chapter-list";
 import BreadCrumb from "./breadcrump";
-import FooterDesktop from "../../components/layouts/footer/desktop";
+import Footer from "../../components/layouts/footer/index.jsx";
 
 const Chapitre8 = () => {
   return (
@@ -22,7 +22,7 @@ const Chapitre8 = () => {
           </div>
         </div>
         <div className=" bg-cyan-950">
-          <FooterDesktop />
+          <Footer />
         </div>
       </section>
     </>

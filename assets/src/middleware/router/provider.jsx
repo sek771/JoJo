@@ -9,14 +9,15 @@ import StardustCrusaders from "../../pages/stardustcrusaders";
 import Dashboard from "../../pages/dashboard";
 import TomeUn from "../../pages/phantomblood/tome1";
 import Read from "../../pages/read";
-import Chapitre1 from "../../pages/tome1/Chapitre/chapitre1";
-import Chapitre2 from "../../pages/tome1/Chapitre/chapitre2";
-import Chapitre3 from "../../pages/tome1/Chapitre/chapitre3";
-import Chapitre4 from "../../pages/tome1/Chapitre/chapitre4";
-import Chapitre5 from "../../pages/tome1/Chapitre/chapitre5";
-import Chapitre6 from "../../pages/tome1/Chapitre/chapitre6";
-import Chapitre7 from "../../pages/tome1/Chapitre/chapitre7";
-import Chapitre8 from "../../pages/tome1/Chapitre/chapitre8";
+import Chapitre1 from "../../pages/phantomblood/tome1/Chapitre/chapitre1";
+import Chapitre2 from "../../pages/phantomblood/tome1/Chapitre/chapitre2";
+import Chapitre3 from "../../pages/phantomblood/tome1/Chapitre/chapitre3";
+import Chapitre4 from "../../pages/phantomblood/tome1/Chapitre/chapitre4";
+import Chapitre5 from "../../pages/phantomblood/tome1/Chapitre/chapitre5";
+import Chapitre6 from "../../pages/phantomblood/tome1/Chapitre/chapitre6";
+import Chapitre7 from "../../pages/phantomblood/tome1/Chapitre/chapitre7";
+import Chapitre8 from "../../pages/phantomblood/tome1/Chapitre/chapitre8";
+
 export const Provider = createBrowserRouter([
   {
     path: "/",
@@ -43,7 +44,7 @@ export const Provider = createBrowserRouter([
     element: <Dashboard />,
   },
   {
-    path: "/phantomblood/diolenvahisseur",
+    path: "/phantomblood/tome1",
     element: <TomeUn />,
   },
   {
@@ -51,35 +52,35 @@ export const Provider = createBrowserRouter([
     element: <Read />,
   },
   {
-    path: "/phantomblood/diolenvahisseur/chapitre1",
+    path: "/phantomblood/tome1/chapitre1",
     element: <Chapitre1 />,
   },
   {
-    path: "/phantomblood/diolenvahisseur/chapitre2",
+    path: "/phantomblood/tome1/chapitre2",
     element: <Chapitre2 />,
   },
   {
-    path: "/phantomblood/diolenvahisseur/chapitre3",
+    path: "/phantomblood/tome1/chapitre3",
     element: <Chapitre3 />,
   },
   {
-    path: "/phantomblood/diolenvahisseur/chapitre4",
+    path: "/phantomblood/tome1/chapitre4",
     element: <Chapitre4 />,
   },
   {
-    path: "/phantomblood/diolenvahisseur/chapitre5",
+    path: "/phantomblood/tome1/chapitre5",
     element: <Chapitre5 />,
   },
   {
-    path: "/phantomblood/diolenvahisseur/chapitre6",
+    path: "/phantomblood/tome1/chapitre6",
     element: <Chapitre6 />,
   },
   {
-    path: "/phantomblood/diolenvahisseur/chapitre7",
+    path: "/phantomblood/tome1/chapitre7",
     element: <Chapitre7 />,
   },
   {
-    path: "/phantomblood/diolenvahisseur/chapitre8",
+    path: "/phantomblood/tom1/chapitre8",
     element: <Chapitre8 />,
   },
 ]);

@@ -3,7 +3,7 @@ import Icon from "./icon";
 import Partie from "./partie";
 import HistoriqueComponent from "./historique";
 import Headerdesktop from "../../components/layouts/header/desktop";
-import FooterDesktop from "../../components/layouts/footer/desktop";
+import Footer from "../../components/layouts/footer/index.jsx";
 
 const Home = () => {
   return (
@@ -33,7 +33,7 @@ const Home = () => {
           <Icon />
         </section>
       </main>
-      <FooterDesktop />
+      <Footer />
     </>
   );
 };

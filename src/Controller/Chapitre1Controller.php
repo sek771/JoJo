@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class Chapitre1Controller extends AbstractController
 {
-    #[Route('/phantomblood/diolenvahisseur/chapitre1', name: 'app_chapitre1')]
+    #[Route('/phantomblood/tome1/chapitre1', name: 'app_chapitre1')]
     public function index(): Response
     {
         return $this->render('chapitre1/index.html.twig', [
