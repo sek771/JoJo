@@ -2,7 +2,7 @@ import React from "react";
 import ImageSlider from "./slide";
 import ChapterList from "./chapter-list";
 import BreadCrumb from "./breadcrump";
-import Footer from "../../components/layouts/footer/index.jsx";
+
 
 const Chapitre2 = () => {
   return (
