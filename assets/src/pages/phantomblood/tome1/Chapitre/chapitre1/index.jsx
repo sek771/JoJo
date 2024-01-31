@@ -20,7 +20,7 @@ const Chapitre1 = () => {
             <ImageSlider />
           </div>
         </div>
-        <div className=" bg-cyan-950"></div>
+      
       </section>
     </>
   );

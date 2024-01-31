@@ -2,7 +2,6 @@ import React from "react";
 import ImageSlider from "./slide";
 import ChapterList from "./chapter-list";
 import BreadCrumb from "./breadcrump";
-import FooterDesktop from "../../components/layouts/footer/desktop";
 
 const Read = () => {
   return (
@@ -22,7 +21,6 @@ const Read = () => {
           </div>
         </div>
         <div className=" bg-cyan-950">
-          <FooterDesktop />
         </div>
       </section>
     </>

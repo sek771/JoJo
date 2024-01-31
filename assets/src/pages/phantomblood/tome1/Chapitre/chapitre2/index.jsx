@@ -21,9 +21,7 @@ const Chapitre2 = () => {
             <ImageSlider />
           </div>
         </div>
-        <div className=" bg-cyan-950">
-          <Footer />
-        </div>
+   
       </section>
     </>
   );

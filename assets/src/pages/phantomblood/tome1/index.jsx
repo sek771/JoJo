@@ -5,7 +5,7 @@ const TomeUn = () => {
   const [chapters, setChapters] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/books").then((response) => {
+    axios.get("/api/books").then((response) => {
       setChapters(response.data["hydra:member"]);
     });
   }, []);

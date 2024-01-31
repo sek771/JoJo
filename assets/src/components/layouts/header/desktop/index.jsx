@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const Headerdesktop = () => {
   return (
     <>
-      <header class="bhidden w-full lg:flex fixed top-0 z-50 flex-col bg-cyan-800g-white ">
+      <header class="bhidden w-full lg:flex fixed top-0 z-50 flex-col bg-cyan-800 ">
         <div class="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div class="flex h-16 items-center justify-between">
             <div class="md:flex md:items-center md:gap-12">

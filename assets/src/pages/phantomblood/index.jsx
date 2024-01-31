@@ -5,7 +5,7 @@ const PhantomBlood = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/books").then((response) => {
+    axios.get("/api/books").then((response) => {
       setBooks(response.data["hydra:member"]);
     });
   }, []);

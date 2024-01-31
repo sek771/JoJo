@@ -3,14 +3,15 @@ import Icon from "./icon";
 import Partie from "./partie";
 import HistoriqueComponent from "./historique";
 import Headerdesktop from "../../components/layouts/header/desktop";
-import Footer from "../../components/layouts/footer/index.jsx";
-
+import LatestRelease from "./latest-release";
+import MoreRead from "./more-read";
+import FirstTomes from "./first-tomes";
 const Home = () => {
   return (
     <>
       <Headerdesktop />
       <main className="bg-blue-900">
-        <section className="bg-jojo   w-full h-screen ">
+        <section className="brown-banner   w-full h-screen ">
           <div>
             <h1 className="uppercase">jojoread</h1>
           </div>
@@ -30,10 +31,12 @@ const Home = () => {
             </div>
             <Partie />
           </div>
+          <LatestRelease/>
+          <MoreRead/>
+          <FirstTomes/>
           <Icon />
         </section>
       </main>
-      <Footer />
     </>
   );
 };
