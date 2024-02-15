@@ -45,7 +45,6 @@ const ImageSlider = () => {
   };
   return (
     <div>
-
       {scans.map((scan) => {
         if (scan.tome[0].title === "Dio l'envahisseur") {
           scan.tome[0].chapter.map((el) => {

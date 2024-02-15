@@ -12,8 +12,9 @@ const Home = () => {
       <Headerdesktop />
       <main className="bg-blue-900">
         <section className="brown-banner   w-full h-screen ">
+        
           <div>
-            <h1 className="uppercase">jojoread</h1>
+            <h1 className="uppercase"></h1>
           </div>
         </section>
         <section>

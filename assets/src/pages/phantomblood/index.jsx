@@ -72,7 +72,7 @@ const PhantomBlood = () => {
                     </dl>
                   </div>
                   
-                  {/* <h1 className="uppercase text-2xl">résumé : </h1>
+                  <h1 className="uppercase text-2xl">résumé : </h1>
             <p className="text-xl">
               À la fin du XIXe siècle, en Angleterre, lord Joestar voit arriver
               dans sa maison le jeune
@@ -84,7 +84,7 @@ const PhantomBlood = () => {
               tout pour s'emparer de
               <br />
               la fortune familiale.
-            </p> */}
+            </p>
                 </>
               );
             })}
